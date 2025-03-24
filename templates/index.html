@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Early Detection of Cardiac Arrest in Newborn Babies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Footer styling */
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #ff0000, #ff6699); /* Red-Pink gradient */
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            z-index: 999;
+        }
+        
+        .footer-left {
+            text-align: left;
+        }
+        
+        .footer-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Early Detection of Cardiac Arrest in Newborn Babies</h1>
+
+    <form method="POST" class="form-container">
+
+        <div class="input-row">
+            <div class="input-group">
+                <label>Age:</label>
+                <input type="text" name="age" required>
+            </div>
+            <div class="input-group">
+                <label>Sex:</label>
+                <select name="sex" class="styled-dropdown" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="input-row">
+            <div class="input-group">
+                <label>CP (Chest Pain Type):</label>
+                <input type="text" name="cp" required>
+            </div>
+            <div class="input-group">
+                <label>Trestbps (Resting BP):</label>
+                <input type="text" name="trestbps" required>
+            </div>
+        </div>
+    
+        <div class="input-row">
+            <div class="input-group">
+                <label>Cholesterol:</label>
+                <input type="text" name="chol" required>
+            </div>
+            <div class="input-group">
+                <label>FBS (Fasting Blood Sugar):</label>
+                <input type="text" name="fbs" required>
+            </div>
+        </div>
+    
+        <div class="input-row">
+            <div class="input-group">
+                <label>RestECG:</label>
+                <input type="text" name="restecg" required>
+            </div>
+            <div class="input-group">
+                <label>Thalach:</label>
+                <input type="text" name="thalach" required>
+            </div>
+        </div>
+    
+        <div class="input-row">
+            <div class="input-group">
+                <label>Exang:</label>
+                <input type="text" name="exang" required>
+            </div>
+            <div class="input-group">
+                <label>Oldpeak:</label>
+                <input type="text" name="oldpeak" required>
+            </div>
+        </div>
+    
+        <div class="input-row">
+            <div class="input-group">
+                <label>Slope:</label>
+                <input type="text" name="slope" required>
+            </div>
+            <div class="input-group">
+                <label>CA (Vessels Colored):</label>
+                <input type="text" name="ca" required>
+            </div>
+        </div>
+    
+        <div class="input-row">
+            <div class="input-group">
+                <label>Thal:</label>
+                <input type="text" name="thal" required>
+            </div>
+            <div class="input-group">
+                <label>Target:</label>
+                <input type="text" name="target" required>
+            </div>
+        </div>
+    
+        <div class="btn-container">
+            <button type="submit">Predict</button>
+        </div>
+    
+    </form>
+    
+    
+    {% if result %}
+    <div class="result-container">
+        <h2>Prediction: <span>{{ result }}</span></h2>
+        <h3>Model Accuracy: <span>{{ accuracy }}%</span></h3>
+    </div>
+    {% endif %}
+
+</div>
+
+<!-- Footer container with two divs -->
+<div class="footer-container">
+    <div class="footer-left">© Syam Kumar</div>
+    <div class="footer-right">Model Used: Random Forest()       ------</div>
+</div>
+
+</body>
+</html>
